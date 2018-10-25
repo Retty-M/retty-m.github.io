@@ -156,6 +156,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-ResNet理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/22/ResNet理解/">ResNet理解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/22/ResNet理解/" class="archive-article-date">
+  	<time datetime="2018-10-22T02:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>(摘自 <a href="https://blog.csdn.net/buyi_shizi/article/details/53336192" target="_blank" rel="noopener">https://blog.csdn.net/buyi_shizi/article/details/53336192</a>)</p>
+<h3 id="ResNet要解决的问题"><a href="#ResNet要解决的问题" class="headerlink" title="ResNet要解决的问题"></a>ResNet要解决的问题</h3><p>&emsp;&emsp;正常情况下，深度学习的网络深度越深，最后的分类和识别的效果越好，所以网络的设计越来越深。但实际上，常规的网络的堆叠（plain network）在网络很深的时候，效果却越来越差。  </p>
+<p><div align="center"><img src="https://i.postimg.cc/HnrfCgg0/image.png" alt=""></div><br>&emsp;&emsp;原因是随着网络深度的增加，梯度消失的现象就越来越明显，网络的训练效果也不会很好。但是现在浅层的网络（shallower network）又无法明显提升网络的识别效果了，所以问题在于如何加深网络的同时解决梯度消失。</p>
+<h3 id="Resnet的解决方案"><a href="#Resnet的解决方案" class="headerlink" title="Resnet的解决方案"></a>Resnet的解决方案</h3><p>&emsp;&emsp;ResNet引入了残差网络结构（residual network），通过残差网络，可以有效地增加网络深度，而不会带来梯度消失。  </p>
+<p><div align="center"><img src="https://i.postimg.cc/QCvv8y82/image.png" alt="残差网络" title="残差网络"></div><br>&emsp;&emsp;通过在输出个输入之间引入一个shortcut connection，而不是简单的堆叠网络，可以解决由于网络很深出现的梯度消失问题，从而把网络做的很深。</p>
+<h3 id="ResNet解读"><a href="#ResNet解读" class="headerlink" title="ResNet解读"></a>ResNet解读</h3><p>&emsp;&emsp;基本的残差网络其实可以从另一个角度来理解。</p>
+<p><div align="center"><img src="https://i.postimg.cc/3RgJsVgc/image.png" alt=""></div><br>&emsp;&emsp;残差网络单元其中可以分解成右图的形式，从图中可以看出，残差网络其实是由多种路径组合的一个网络，直白了说，残差网络其实是很多并行子网络的组合，整个残差网络其实相当于一个多人投票系统（Ensembling）。</p>
+<h3 id="ResNet的真面目"><a href="#ResNet的真面目" class="headerlink" title="ResNet的真面目"></a>ResNet的真面目</h3><p>&emsp;&emsp;ResNet是由大多数中度网络和一小部分浅度网络和深度网络组成的，说明虽然表面上ResNet网络很深，但是其实起实际作用的网络层数并没有很深，我们能来进一步阐述这个问题，我们知道网络越深，梯度就越小。<br>&emsp;&emsp;而通过各个路径长度上包含的网络数乘以每个路径的梯度值，我们可以得到ResNet真正起作用的网络是什么样的，如下图所示：</p>
+<p><div align="center"><img src="https://i.postimg.cc/zDFG0mDL/image.png" alt=""></div><br>&emsp;&emsp;我们可以看出大多数的梯度其实都集中在中间的路径上，从这可以看出其实ResNet只是表面上看起来很深，事实上网络却很浅。所以ResNet真的解决了深度网络的梯度消失的问题了吗？似乎没有，ResNet其实就是一个多人投票系统。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">DeepLearning</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ResNet</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/22/ResNet理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-深度学习文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -177,7 +263,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="一个小白的深度学习记录"><a href="#一个小白的深度学习记录" class="headerlink" title="一个小白的深度学习记录"></a>一个小白的深度学习记录</h4><ol>
-<li><a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener">Neural Networks and Deep Learning</a></li>
+<li><p><a href="http://neuralnetworksanddeeplearning.com/" target="_blank" rel="noopener">Neural Networks and Deep Learning</a></p>
+</li>
+<li><p><a href="https://github.com/open-source-for-science/TensorFlow-Course" target="_blank" rel="noopener">TensorFlow-Course</a><br>TensorFlow使用快速入门,从安装到基本API使用都有,很条理.<br>(This repository aims to provide simple and ready-to-use tutorials for TensorFlow. Each tutorial includes source code and most of them associated with a documentation.)</p>
+</li>
 </ol>
 <hr>
 <p>(待更新)</p>
@@ -255,9 +344,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在最新版本的HomeAssistant中,有现成的HomeKit组件可以使用,但是在初始化过程中发生错误.</p>
-        
-          <a class="article-more-a" href="/2018/10/11/HomeKit初始化失败/#more">more >></a>
-        
+<h3 id="Homekit-Component-Setup"><a href="#Homekit-Component-Setup" class="headerlink" title="Homekit Component Setup"></a>Homekit Component Setup</h3><p>按照HA官方文档中<a href="https://www.home-assistant.io/components/homekit/" target="_blank" rel="noopener">HomeKit</a>的最简设置方法修改_config.yml文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Example for HomeKit setup</span><br><span class="line">homekit:</span><br></pre></td></tr></table></figure>
+<p>重启HA后,前台显示Homekit初始化失败,Log中有如下错误:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/concurrent/futures/thread.py&quot;, line 56, in run</span><br><span class="line">    result = self.fn(*self.args, **self.kwargs)</span><br><span class="line">  File &quot;/usr/src/app/homeassistant/components/homekit/__init__.py&quot;, line 111, in start_driver</span><br><span class="line">    from pyhap.accessory_driver import AccessoryDriver</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/site-packages/pyhap/accessory_driver.py&quot;, line 41, in &lt;module&gt;</span><br><span class="line">    from pyhap.hap_server import HAPServer</span><br><span class="line">  File &quot;/usr/local/lib/python3.6/site-packages/pyhap/hap_server.py&quot;, line 19, in &lt;module&gt;</span><br><span class="line">    from Crypto.Protocol.KDF import HKDF</span><br><span class="line">ImportError: cannot import name &apos;HKDF&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>依赖库<a href="https://pypi.org/project/pycrypto/" target="_blank" rel="noopener">PyCrypto</a>(2.6.1)版本旧且安全性较差</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>使用<a href="https://pypi.org/project/pycryptodome/" target="_blank" rel="noopener">PyCryptodome</a>代替PyCrypto.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo pip install pycryptodome</span><br></pre></td></tr></table></figure>
+<p>重启HA,Homekit加载成功,显示PinCode.</p>
+
       
 
       
@@ -486,6 +581,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">DeepLearning</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ResNet</a>
               </li>
             
             <div class="clearfix"></div>
